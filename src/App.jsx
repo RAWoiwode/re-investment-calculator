@@ -5,23 +5,31 @@ import UserInput from "./components/UserInput";
 
 function App() {
   const [investmentData, setInvestmentData] = useState({
-    initialInvestment: 0,
-    annualInvestment: 0,
-    expectedReturn: 0,
+    initialInvestment: 1000,
+    annualInvestment: 100,
+    expectedReturn: 6,
     duration: 1,
   });
 
-  const handleDataChange = (data) => {
-    setInvestmentData(data);
+  const toNumber = (x) => {
+    return Number(x);
   };
-  console.log("Investment Data", investmentData);
+
+  const handleInvestmentDataChange = (id, event) => {
+    const newData = {
+      ...investmentData,
+      [id]: toNumber(event),
+    };
+
+    setInvestmentData(newData);
+  };
 
   return (
     <>
       <Header />
       <UserInput
         investmentData={investmentData}
-        onDataChange={handleDataChange}
+        onChange={handleInvestmentDataChange}
       />
       <ResultsTable data={investmentData} />
     </>
