@@ -11,14 +11,12 @@ function App() {
     duration: 1,
   });
 
-  const toNumber = (x) => {
-    return Number(x);
-  };
+  const inputIsValid = investmentData.duration >= 1;
 
-  const handleInvestmentDataChange = (id, event) => {
+  const handleInvestmentDataChange = (id, value) => {
     const newData = {
       ...investmentData,
-      [id]: toNumber(event),
+      [id]: +value,
     };
 
     setInvestmentData(newData);
@@ -31,7 +29,8 @@ function App() {
         investmentData={investmentData}
         onChange={handleInvestmentDataChange}
       />
-      <ResultsTable data={investmentData} />
+      {inputIsValid && <ResultsTable data={investmentData} />}
+      {!inputIsValid && <p className="center">Please enter valid duration</p>}
     </>
   );
 }

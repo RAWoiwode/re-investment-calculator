@@ -10,25 +10,25 @@ const UserInput = ({ investmentData, onChange }) => {
       <div className="input-group">
         <Input
           title={"Initial Investment"}
-          onChange={(e) => onChange("initialInvestment", e)}
           value={initialInvestment}
+          onChange={(value) => onChange("initialInvestment", value)}
         />
         <Input
           title={"Annual Investment"}
-          onChange={(e) => onChange("annualInvestment", e)}
           value={annualInvestment}
+          onChange={(value) => onChange("annualInvestment", value)}
         />
       </div>
       <div className="input-group">
         <Input
           title={"Expected Return"}
-          onChange={(e) => onChange("expectedReturn", e)}
           value={expectedReturn}
+          onChange={(value) => onChange("expectedReturn", value)}
         />
         <Input
           title={"Duration"}
-          onChange={(e) => onChange("duration", e)}
           value={duration}
+          onChange={(value) => onChange("duration", value)}
         />
       </div>
     </form>
