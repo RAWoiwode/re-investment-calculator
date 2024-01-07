@@ -14,6 +14,7 @@ function App() {
   const handleDataChange = (data) => {
     setInvestmentData(data);
   };
+  console.log("Investment Data", investmentData);
 
   return (
     <>

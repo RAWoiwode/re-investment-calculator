@@ -5,11 +5,14 @@ const UserInput = ({ investmentData, onDataChange }) => {
   const { initialInvestment, annualInvestment, expectedReturn, duration } =
     investmentData;
 
+  const toNumber = (x) => {
+    return Number(x);
+  };
+
   const handleInitialInvestmentChange = (event) => {
-    console.log(event);
     const newData = {
       ...investmentData,
-      initialInvestment: event,
+      initialInvestment: toNumber(event),
     };
 
     onDataChange(newData);
@@ -18,7 +21,7 @@ const UserInput = ({ investmentData, onDataChange }) => {
   const handleAnnualInvestmentChange = (event) => {
     const newData = {
       ...investmentData,
-      annualInvestment: event,
+      annualInvestment: toNumber(event),
     };
 
     onDataChange(newData);
@@ -27,7 +30,7 @@ const UserInput = ({ investmentData, onDataChange }) => {
   const handleExpectedReturnChange = (event) => {
     const newData = {
       ...investmentData,
-      expectedReturn: event,
+      expectedReturn: toNumber(event),
     };
 
     onDataChange(newData);
@@ -36,7 +39,7 @@ const UserInput = ({ investmentData, onDataChange }) => {
   const handleDurationChange = (event) => {
     const newData = {
       ...investmentData,
-      duration: event,
+      duration: toNumber(event),
     };
 
     onDataChange(newData);
