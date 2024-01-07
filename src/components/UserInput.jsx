@@ -9,50 +9,13 @@ const UserInput = ({ investmentData, onDataChange }) => {
     return Number(x);
   };
 
-  const handleInitialInvestmentChange = (event) => {
+  const handleInvestmentDataChange = (id, event) => {
     const newData = {
       ...investmentData,
-      initialInvestment: toNumber(event),
+      [id]: toNumber(event),
     };
 
     onDataChange(newData);
-  };
-
-  const handleAnnualInvestmentChange = (event) => {
-    const newData = {
-      ...investmentData,
-      annualInvestment: toNumber(event),
-    };
-
-    onDataChange(newData);
-  };
-
-  const handleExpectedReturnChange = (event) => {
-    const newData = {
-      ...investmentData,
-      expectedReturn: toNumber(event),
-    };
-
-    onDataChange(newData);
-  };
-
-  const handleDurationChange = (event) => {
-    if (event < 1) {
-      alert("Can't enter less than 1 year for duration");
-      const newData = {
-        ...investmentData,
-        duration: 1,
-      };
-
-      onDataChange(newData);
-    } else {
-      const newData = {
-        ...investmentData,
-        duration: toNumber(event),
-      };
-
-      onDataChange(newData);
-    }
   };
 
   return (
@@ -60,24 +23,24 @@ const UserInput = ({ investmentData, onDataChange }) => {
       <div className="input-group">
         <Input
           title={"Initial Investment"}
-          onChange={handleInitialInvestmentChange}
+          onChange={(e) => handleInvestmentDataChange("initialInvestment", e)}
           value={initialInvestment}
         />
         <Input
           title={"Annual Investment"}
-          onChange={handleAnnualInvestmentChange}
+          onChange={(e) => handleInvestmentDataChange("annualInvestment", e)}
           value={annualInvestment}
         />
       </div>
       <div className="input-group">
         <Input
           title={"Expected Return"}
-          onChange={handleExpectedReturnChange}
+          onChange={(e) => handleInvestmentDataChange("expectedReturn", e)}
           value={expectedReturn}
         />
         <Input
           title={"Duration"}
-          onChange={handleDurationChange}
+          onChange={(e) => handleInvestmentDataChange("duration", e)}
           value={duration}
         />
       </div>
