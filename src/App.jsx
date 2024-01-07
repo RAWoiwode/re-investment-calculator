@@ -8,7 +8,7 @@ function App() {
     initialInvestment: 0,
     annualInvestment: 0,
     expectedReturn: 0,
-    duration: 0,
+    duration: 1,
   });
 
   const handleDataChange = (data) => {

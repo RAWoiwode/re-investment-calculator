@@ -37,12 +37,22 @@ const UserInput = ({ investmentData, onDataChange }) => {
   };
 
   const handleDurationChange = (event) => {
-    const newData = {
-      ...investmentData,
-      duration: toNumber(event),
-    };
+    if (event < 1) {
+      alert("Can't enter less than 1 year for duration");
+      const newData = {
+        ...investmentData,
+        duration: 1,
+      };
 
-    onDataChange(newData);
+      onDataChange(newData);
+    } else {
+      const newData = {
+        ...investmentData,
+        duration: toNumber(event),
+      };
+
+      onDataChange(newData);
+    }
   };
 
   return (
